@@ -13,7 +13,7 @@ module CRC32
 
 export crc32
 
-# contiguous byte arrays compatible with C `unsigned char *` API of zlib
+# contiguous byte arrays compatible with C `void *` API of libdeflate
 if VERSION ≥ v"1.11"
     const ByteArray = Union{Array{UInt8},
                             Memory{UInt8},
@@ -63,7 +63,7 @@ crc32(io::IOStream, crc::UInt32=0x00000000) = _crc32(io, crc)
 
 ####################################################################
 # Low-level code, based on code from julia/base/util.jl but
-# using Zlib's crc32 function (which is standardized by LSB).
+# using libdeflate's crc32 function (which is standardized by LSB).
 
 using libdeflate_jll
 
