@@ -32,6 +32,9 @@ jobs:
         exclude:
           - os: macOS-latest
             arch: x86
+            # macOS-latest only works with Julia 1.9+
+          - os: macOS-latest
+            version: "1.6"
           - os: macOS-latest
             arch: x64
           - os: ubuntu-latest
